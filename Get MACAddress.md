@@ -14,3 +14,13 @@
                 }
             }
 ```
+
+
+
+4. 新找到方案，可以直接使用sqlserver系统表中的数据进行判断，此方法无法保证一定与硬件匹配，但是目前看来很可能是sqlserver安装时带到sqlserver表中的。虽然属于可以修改的数据，但是依然算比较不错的实现方式。
+```
+declare @t table (i uniqueidentifier default newsequentialid(),  m as cast(i as char(36)))
+insert into @t default values;
+
+select substring(m,25,2) + '-' + substring(m,27,2) + '-' + substring(m,29,2) + '-' + substring(m,31,2) + '-' + substring(m,33,2) + '-' +  substring(m,35,2) AS MacAddress FROM @t
+```
