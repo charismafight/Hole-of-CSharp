@@ -1,0 +1,1 @@
+tfs的iis身份认证设置中不要开asp.net模拟，打开windows身份认证和基本身份认证即可
