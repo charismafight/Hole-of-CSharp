@@ -1,0 +1,5 @@
+# 显示gif图片需要winform进行updateframe的计算，不断在页面上显示并刷新
+
+winform的窗体无法在子线程中展示gif图片
+
+最终实现开始页面的loading效果的方式是process一个新的exe专门显示loading动画，然后把pid传到打开的程序中让它启动完毕后结束动画进程
