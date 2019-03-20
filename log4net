@@ -3,7 +3,13 @@ log4net配置保存到数据库
 
 在xp和win7某些电脑上出现无法保存到数据库的问题
 
-config中的configSections节点里增加哦<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"/>
+config中的configSections节点里增加
+```
+    <appSettings>
+        <add key="log4net.Internal.Debug" value="true"/>
+    </appSettings>
+```
+
 在configuration节增加
 ```
     <system.diagnostics>
