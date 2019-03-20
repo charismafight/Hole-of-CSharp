@@ -1,0 +1,21 @@
+log4net配置保存到数据库
+<connectionType value="System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+
+在xp和win7某些电脑上出现无法保存到数据库的问题
+
+config中的configSections节点里增加哦<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"/>
+在configuration节增加
+```
+    <system.diagnostics>
+        <trace autoflush="true">
+            <listeners>
+                <add 
+                    name="textWriterTraceListener" 
+                    type="System.Diagnostics.TextWriterTraceListener" 
+                    initializeData="C:\log4net.txt" />
+            </listeners>
+        </trace>
+    </system.diagnostics>
+```
+
+可以在c盘下查看调试日志log4net
